@@ -1,5 +1,6 @@
 from qgis.core import (QgsPoint, QgsRaster)
 from qgis.utils import iface
+from qgis.core import QgsProject
 import numpy as np
 
 def color_value_for_point(raster, point):
@@ -11,6 +12,6 @@ def color_values_for_raster(raster):
   nested_list = [color_value_for_point(raster, QgsPoint(x, y)) for x in width for y in height]
   return np.array(nested_list)
 
-raster = iface.activeLayer()
+raster = QgsProject.instance().mapLayers().values()[0]
 color_values = color_values_for_raster(raster)
 print(color_values)
