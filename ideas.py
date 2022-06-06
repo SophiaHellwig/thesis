@@ -12,3 +12,4 @@ def color_values_for_raster(raster):
 
 raster = QgsRasterLayer("satimage.tif", "satimage")
 color_values = color_values_for_raster(raster)
+print(color_values)
