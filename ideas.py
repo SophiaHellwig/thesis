@@ -6,7 +6,7 @@ def color_value_for_point(raster, point):
   return list(results.values())
 
 def color_values_for_raster(raster):
-  width, height = raster.width(), raster.height()
+  width, height = range(0, raster.width()), range(0, raster.height())
   nested_list = [color_value_for_point(raster, QgsPoint(x, y)) for x in width for y in height]
   return np.array(nested_list)
 
